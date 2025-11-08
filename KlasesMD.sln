@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlasesMD", "KlasesMD\Klases
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsolesLietotne(1MD)", "KonsolesLietotne(1MD)\KonsolesLietotne(1MD).csproj", "{312D87BF-C599-4123-BF74-B21FE57A2866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiLietotne", "MauiLietotne\MauiLietotne.csproj", "{1D86A8EB-CF44-4CCA-B843-09067B4A40EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiLietotne", "MauiLietotne\MauiLietotne.csproj", "{75E74057-9A98-4DAC-8D51-7BE017C4CB58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,11 +23,11 @@ Global
 		{312D87BF-C599-4123-BF74-B21FE57A2866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{312D87BF-C599-4123-BF74-B21FE57A2866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{312D87BF-C599-4123-BF74-B21FE57A2866}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D86A8EB-CF44-4CCA-B843-09067B4A40EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D86A8EB-CF44-4CCA-B843-09067B4A40EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D86A8EB-CF44-4CCA-B843-09067B4A40EA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{1D86A8EB-CF44-4CCA-B843-09067B4A40EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D86A8EB-CF44-4CCA-B843-09067B4A40EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E74057-9A98-4DAC-8D51-7BE017C4CB58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E74057-9A98-4DAC-8D51-7BE017C4CB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E74057-9A98-4DAC-8D51-7BE017C4CB58}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{75E74057-9A98-4DAC-8D51-7BE017C4CB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E74057-9A98-4DAC-8D51-7BE017C4CB58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

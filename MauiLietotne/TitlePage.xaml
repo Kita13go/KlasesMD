@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiLietotne.TitlePage"
+             Title="TitlePage">
+    <VerticalStackLayout>
+        <Button x:Name="btnTestData" Text="Test Data" Clicked=""></Button>
+        <Button x:Name="btnReset" Text="Reset" Clicked=""></Button>
+        <Button x:Name="btnSave" Text="Save" Clicked=""></Button>
+        <Button x:Name="btnLoad" Text="Load" Clicked=""></Button>
+        <Button x:Name="btnPrint" Text="Print" Clicked=""></Button>
+        <Label x:Name="lblData" Text=""></Label>
+    </VerticalStackLayout>
+</ContentPage>

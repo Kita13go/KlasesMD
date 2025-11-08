@@ -1,14 +1,15 @@
 using KlasesMD;
 
-namespace MauiLietotne.Forms;
+namespace MauiLietotne;
 
 public partial class DataManagmentPage : ContentPage
 {
-	IDataManager dm;
-	public DataManagmentPage()
+	
+    public IDataManager dm;
+    public DataManagmentPage()
 	{
-		InitializeComponent();
-		dm = new JSONDataManager();
+        InitializeComponent();
+        dm = new JSONDataManager();
     }
 
     private void btnTestData_Clicked(object sender, EventArgs e)
