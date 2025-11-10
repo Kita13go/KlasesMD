@@ -4,20 +4,31 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiLietotne"
+    xmlns:forms="clr-namespace:MauiLietotne.Forms"
     Title="MauiLietotne">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    <ShellContent
-        Title="Title"
-        ContentTemplate="{DataTemplate local:TitlePage}"
-        Route="Title" />
-    <ShellContent
-        Title="Data"
-        ContentTemplate="{DataTemplate local:DataManagmentPage}"
+        Title="Data Managment Page"
+        ContentTemplate="{DataTemplate forms:DataManagmentPage}"
         Route="DataManagmentPage" />
-
-
+    <ShellContent
+        Title="Assignment List"
+        ContentTemplate="{DataTemplate forms:AssignmentList}"
+        Route="AssignmentList" />
+    <ShellContent
+        Title="Ticket List"
+        ContentTemplate="{DataTemplate forms:TicketList}"
+        Route="TicketList" />
+    <ShellContent
+        Title="Add Assignment"
+        ContentTemplate="{DataTemplate forms:AddAssignment}"
+        Route="AddAssignment" />
+    <ShellContent
+        Title="Add Ticket"
+        ContentTemplate="{DataTemplate forms:AddTicket}"
+        Route="AddTicket" />
+    <ShellContent
+        Title="Add ITSupport"
+        ContentTemplate="{DataTemplate forms:AddITSupport}"
+        Route="AddITSupport" />
 </Shell>

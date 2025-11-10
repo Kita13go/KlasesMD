@@ -1,51 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static KlasesMD.ITSupport;
-using static KlasesMD.Ticket;
+using static Klases.ITSupport;
+using static Klases.Ticket;
 
-namespace KlasesMD
+namespace Klases
 {
-    public class JSONDataManager : IDataManager
+    public class JSONDataManager: IDataManager, IAdd
     {
-        private Collections collections;
-        private string filePath = "C:\\Temp\\data.txt"; // Noklusētais ceļš uz datni
+        public Collections collections { get; set; }
+        public string filePath { get; set; } = "C:\\Temp\\data.txt"; // Noklusētais ceļš uz datni
 
         // Konstruktoru pārslogošana, lai varētu izveidot ar vai bez ceļa parametra
         public JSONDataManager()
         {
             this.collections = new Collections();
         }
-        public JSONDataManager(string path): this()
+        public JSONDataManager(string path) : this()
         {
             if (path != "")
                 this.filePath = path;
         }
+
+        public void addAssignment(Assignement assignment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addITSupport(ITSupport support)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addTicket(Ticket ticket)
+        {
+            throw new NotImplementedException();
+        }
+
         public void createTestData()
         {
             // Testa piemērus pajautāju ChatGPT, jo pašam nav tik daudz fantāzijas, lai to visu izdomātu :) saite: https://chatgpt.com/
             // Divi darbnieka piemēri
-            var e1 = new Employee 
-            { 
-                UserID = 1, 
-                UserName = "Anna Ozola", 
-                Email = "anna.ozola@gmail.com", 
-                IsActive = true, 
-                ContractDate = new DateTime(2020, 5, 10) 
+            var e1 = new Employee
+            {
+                UserID = 1,
+                UserName = "Anna Ozola",
+                Email = "anna.ozola@gmail.com",
+                IsActive = true,
+                ContractDate = new DateTime(2020, 5, 10)
             };
-            var e2 = new Employee 
-            { 
-                UserID = 2, 
-                UserName = "Jānis Bērziņš", 
-                Email = "janis.berzins@gmail.com", 
-                IsActive = true, 
-                ContractDate = new DateTime(2021, 3, 20) 
+            var e2 = new Employee
+            {
+                UserID = 2,
+                UserName = "Jānis Bērziņš",
+                Email = "janis.berzins@gmail.com",
+                IsActive = true,
+                ContractDate = new DateTime(2021, 3, 20)
             };
             collections.Employees.AddRange(new[] { e1, e2 });
 
@@ -55,8 +69,8 @@ namespace KlasesMD
             collections.ITSupports.AddRange(new[] { s1, s2 });
 
             //Biļetes 
-            var t1 = new Ticket 
-            { 
+            var t1 = new Ticket
+            {
                 TicketID = 101,
                 Title = "printeris nestrādā",
                 Description = "Printeris 2. stāvā neieslēdzas.",
@@ -96,8 +110,29 @@ namespace KlasesMD
                 Comment = "Notestēt Excel atjauninājumu."
             };
             collections.Assignements.AddRange(new[] { a1, a2 });
-            
+
         }
+
+        public List<Assignement> GetAllAssignments()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ITSupport> GetAllITSupports()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Ticket> GetAllTickets()
+        {
+            throw new NotImplementedException();
+        }
+
         public void load() // No Jūsu piemēra, bet bez bool atgriešanas
         {
             try
@@ -139,5 +174,6 @@ namespace KlasesMD
                 Debug.WriteLine(ex.Message);
             }
         }
+        
     }
 }

@@ -65,7 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\KlasesMD\KlasesMD.csproj" />
+	  <ProjectReference Include="..\Klases\Klases.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -75,7 +75,22 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Forms\AddAssignment.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Forms\AddITSupport.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Forms\AddTicket.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Forms\AssignmentList.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Forms\DataManagmentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Forms\TicketList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="TitlePage.xaml">

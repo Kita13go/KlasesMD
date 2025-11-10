@@ -4,11 +4,11 @@
              x:Class="MauiLietotne.TitlePage"
              Title="TitlePage">
     <VerticalStackLayout>
-        <Button x:Name="btnTestData" Text="Test Data" Clicked=""></Button>
-        <Button x:Name="btnReset" Text="Reset" Clicked=""></Button>
-        <Button x:Name="btnSave" Text="Save" Clicked=""></Button>
-        <Button x:Name="btnLoad" Text="Load" Clicked=""></Button>
-        <Button x:Name="btnPrint" Text="Print" Clicked=""></Button>
+        <Button x:Name="btnTestData" Text="Test Data" ></Button>
+        <Button x:Name="btnReset" Text="Reset" ></Button>
+        <Button x:Name="btnSave" Text="Save" ></Button>
+        <Button x:Name="btnLoad" Text="Load" ></Button>
+        <Button x:Name="btnPrint" Text="Print" ></Button>
         <Label x:Name="lblData" Text=""></Label>
     </VerticalStackLayout>
 </ContentPage>

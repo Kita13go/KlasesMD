@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlasesMD
+namespace Klases
 {
     public class Ticket
     {
@@ -19,7 +19,7 @@ namespace KlasesMD
             InProgress,
             Resolved,
             Closed
-        }  
+        }
         public TicketStatus Status { get; set; }
         public bool IsResolved { get; set; }
         // Pārdefinēta ToString metode, lai izvadītu visas īpašības

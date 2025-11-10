@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiLietotne.Forms.AddTicket"
+             Title="AddTicket">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+            Text="Izveidot jaunu Ticket!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <HorizontalStackLayout>
+                <Label Text="Ticket ID: "/>
+                <Entry x:Name="txtTicketID" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Title: "/>
+                <Entry x:Name="txtTitle" />
+            </HorizontalStackLayout>
+            <VerticalStackLayout>
+                <Label Text="Description: " />
+                <Editor x:Name="txtDescription" AutoSize="TextChanges" HeightRequest="80" />
+            </VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Priority: " />
+                <Entry x:Name="txtPriority" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Created By (UserID): " />
+                <Entry x:Name="txtCreatedByID" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Status: "/>
+                <Picker x:Name="cboStatus" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Is Resolved: "/>
+                <Picker x:Name="cboIsResolved" />
+            </HorizontalStackLayout>
+            <Button x:Name="btnAdd" Text="Pievienot" Clicked="btnAdd_Clicked"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,15 +1,14 @@
-using KlasesMD;
+using Klases;
 
-namespace MauiLietotne;
+namespace MauiLietotne.Forms;
 
 public partial class DataManagmentPage : ContentPage
 {
-	
     public IDataManager dm;
     public DataManagmentPage()
 	{
-        InitializeComponent();
-        dm = new JSONDataManager();
+		InitializeComponent();
+        dm = MyStaticItems.myDm;
     }
 
     private void btnTestData_Clicked(object sender, EventArgs e)
@@ -36,6 +35,11 @@ public partial class DataManagmentPage : ContentPage
     }
 
     private void btnPrint_Clicked(object sender, EventArgs e)
+    {
+        lblData.Text = dm.print();
+    }
+
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         lblData.Text = dm.print();
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlasesMD
+namespace Klases
 {
-    public class Collections
+    public class Collections: IAdd
     {
         // Kolekcijas ar visiem iepriekš definētajiem klašu objektiem
         // Klase User nav iekļauta, jo tā ir abstrakta un nevar tikt instancēta
@@ -39,6 +39,34 @@ namespace KlasesMD
             }
             return sb.ToString();
         }
+        public void addITSupport(ITSupport support)
+        {
+            ITSupports.Add(support);
+        }
+        public List<ITSupport> GetAllITSupports()
+        {
+            return ITSupports;
+        }
+        public void addTicket(Ticket ticket)
+        {
+            Tickets.Add(ticket);
+        }
+        public List<Employee> GetAllEmployees()
+        {
+            return Employees;
+        }
 
+        public List<Ticket> GetAllTickets()
+        {
+            return Tickets;
+        }
+        public List<Assignement> GetAllAssignments()
+        {
+            return Assignements;
+        }
+        public void addAssignment(Assignement assignment)
+        {
+            Assignements.Add(assignment);
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlasesMD
+namespace Klases
 {
     public abstract class User
     {
@@ -21,8 +21,8 @@ namespace KlasesMD
         public string Email
         {
             get { return email; }
-            set 
-            { 
+            set
+            {
                 if (value.Contains("@")) // Pārbauda, vai e-pasts satur "@" simbolu
                 {
                     email = value;

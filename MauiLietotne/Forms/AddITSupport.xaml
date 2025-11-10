@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Klases;assembly=Klases"
+             x:Class="MauiLietotne.Forms.AddITSupport"
+             Title="AddITSupport">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+                Text="Izveidot jaunu ITSupport!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <HorizontalStackLayout>
+                <Label Text="User ID: "></Label>
+                <Entry x:Name="txtUserID"></Entry>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="User Name: "></Label>
+                <Entry x:Name="txtUserName"></Entry>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Email: "></Label>
+                <Entry x:Name="txtEmail" Text=""></Entry>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Is Active: "></Label>
+                <Picker x:Name="cboIsActive"></Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Specialization Type: "></Label>
+                <Picker x:Name="cboSpecializationType"></Picker>
+            </HorizontalStackLayout>
+            <Button x:Name="btnAdd" Text="Pievienot" Clicked="btnAdd_Clicked"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
