@@ -75,7 +75,7 @@ namespace Klases
                 Title = "printeris nestrādā",
                 Description = "Printeris 2. stāvā neieslēdzas.",
                 Priority = 2,
-                CreatedBy = e1,
+                CreatedBy = e1.UserID,
                 Status = TicketStatus.Open,
                 IsResolved = false
             };
@@ -85,7 +85,7 @@ namespace Klases
                 Title = "Programmas kļūda",
                 Description = "Excel nereaģē uz peles klikšķiem.",
                 Priority = 3,
-                CreatedBy = e2,
+                CreatedBy = e2.UserID,
                 Status = TicketStatus.InProgress,
                 IsResolved = false
             };
@@ -96,8 +96,8 @@ namespace Klases
             {
                 AssignementID = 1,
                 AssignedAt = DateTime.Now,
-                Ticket = t1,
-                Support = s1,
+                TicketID = t1.TicketID,
+                SupportID = s1.UserID,
                 Comment = "Pārbaudīt printera barošanu."
             };
 
@@ -105,8 +105,8 @@ namespace Klases
             {
                 AssignementID = 2,
                 AssignedAt = DateTime.Now,
-                Support = s2,
-                Ticket = t2,
+                SupportID = s2.UserID,
+                TicketID = t2.TicketID,
                 Comment = "Notestēt Excel atjauninājumu."
             };
             collections.Assignements.AddRange(new[] { a1, a2 });

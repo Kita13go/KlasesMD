@@ -24,7 +24,7 @@ public partial class AddTicket : ContentPage
         txtTitle.Text = ticket.Title;
         txtDescription.Text = ticket.Description;
         txtPriority.Text = ticket.Priority.ToString();
-        txtCreatedByID.Text = ticket.CreatedBy.UserID.ToString();
+        txtCreatedByID.Text = ticket.CreatedBy.ToString();
         cboStatus.SelectedIndex = (int)ticket.Status;
         cboIsResolved.SelectedItem = ticket.IsResolved ? "True" : "False";
     }
@@ -83,7 +83,7 @@ public partial class AddTicket : ContentPage
             newTicket.Title = txtTitle.Text.Trim();
             newTicket.Description = txtDescription.Text.Trim();
             newTicket.Priority = priority;
-            newTicket.CreatedBy = creator;
+            newTicket.CreatedBy = createdById;
             newTicket.Status = (Ticket.TicketStatus)cboStatus.SelectedIndex;
             newTicket.IsResolved = cboIsResolved.SelectedItem?.ToString() == "True";
 
@@ -143,6 +143,7 @@ public partial class AddTicket : ContentPage
             _ticket.Title = txtTitle.Text.Trim();
             _ticket.Description = txtDescription.Text.Trim();
             _ticket.Priority = int.Parse(txtPriority.Text);
+            _ticket.CreatedBy = createdById;
             _ticket.Status = (Ticket.TicketStatus)cboStatus.SelectedIndex;
             _ticket.IsResolved = cboIsResolved.SelectedItem?.ToString() == "True";
             // Pieņemot, ka dm ir atjauninājis biļeti kolekcijā

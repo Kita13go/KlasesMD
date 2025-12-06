@@ -17,8 +17,8 @@ public partial class AddAssignment : ContentPage
         _assignment = assignment;
         // Aizpildām laukus ar esošajiem datiem
         txtAssignmentID.Text = assignment.AssignementID.ToString();
-        txtITSupportID.Text = assignment.Support.UserID.ToString();
-        txtTicketID.Text = assignment.Ticket.TicketID.ToString();
+        txtITSupportID.Text = assignment.SupportID.ToString();
+        txtTicketID.Text = assignment.TicketID.ToString();
         txtComment.Text = assignment.Comment;
     }
 
@@ -80,8 +80,8 @@ public partial class AddAssignment : ContentPage
             // Izveidojam Assignment objektu
             newAssignement.AssignementID = assignmentId;
             newAssignement.AssignedAt = DateTime.Now;
-            newAssignement.Support = support;
-            newAssignement.Ticket = ticket;
+            newAssignement.SupportID = supportId;
+            newAssignement.TicketID = ticketId;
             newAssignement.Comment = txtComment.Text.Trim();
 
             // Pievienojam un saglabājam
@@ -144,8 +144,8 @@ public partial class AddAssignment : ContentPage
             // Atjaunojam esošo Assignment objektu
             _assignment.AssignementID = assignmentId;
             _assignment.AssignedAt = DateTime.Now;
-            _assignment.Support = support;
-            _assignment.Ticket = ticket;
+            _assignment.SupportID = supportId;
+            _assignment.TicketID = ticketId;
             _assignment.Comment = txtComment.Text.Trim();
             await Navigation.PopAsync();
         }
