@@ -3,12 +3,12 @@ namespace MauiLietotne.Forms;
 
 public partial class TicketList : ContentPage
 {
-	private Collections dm;
+	private AddManager dm;
     public TicketList()
 	{
 		InitializeComponent();
-        dm = MyStaticItems.myDm.collections;
-        cVList.ItemsSource = dm.GetAllTickets();
+        dm = MyStaticItems.myDm.am;
+        cVList.ItemsSource = dm.getTicketList();
     }
 
 
@@ -37,9 +37,9 @@ public partial class TicketList : ContentPage
                 bool answer = await DisplayAlert("Question?", "Vai gribat dz?st? " + tic.ToString(), "yes", "no");
                 if (answer)
                 {
-                    dm.Tickets.Remove(tic);
+                    dm.removeTicket(tic);
                     cVList.ItemsSource = null;
-                    cVList.ItemsSource = dm.GetAllTickets();
+                    cVList.ItemsSource = dm.getTicketList();
                 }
             }
         }
@@ -48,6 +48,6 @@ public partial class TicketList : ContentPage
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         cVList.ItemsSource = null;
-        cVList.ItemsSource = dm.GetAllTickets();
+        cVList.ItemsSource = dm.getTicketList();
     }
 }

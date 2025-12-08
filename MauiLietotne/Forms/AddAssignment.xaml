@@ -10,16 +10,12 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
             <HorizontalStackLayout>
-                <Label Text="Assignment ID: "/>
-                <Entry x:Name="txtAssignmentID" />
+                <Label Text="ITSupport: "></Label>
+                <Picker x:Name="cboITSupport" ItemDisplayBinding="{Binding UserName}" />
             </HorizontalStackLayout>
             <HorizontalStackLayout>
-                <Label Text="ITSupport ID: "/>
-                <Entry x:Name="txtITSupportID" />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout>
-                <Label Text="Ticket ID: "/>
-                <Entry x:Name="txtTicketID" />
+                <Label Text="Ticket: "></Label>
+                <Picker x:Name="cboTicket" ItemDisplayBinding="{Binding Title}" />
             </HorizontalStackLayout>
             <VerticalStackLayout>
                 <Label Text="Comment: " />

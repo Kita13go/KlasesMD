@@ -10,10 +10,6 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
             <HorizontalStackLayout>
-                <Label Text="Ticket ID: "/>
-                <Entry x:Name="txtTicketID" />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout>
                 <Label Text="Title: "/>
                 <Entry x:Name="txtTitle" />
             </HorizontalStackLayout>
@@ -26,8 +22,8 @@
                 <Entry x:Name="txtPriority" />
             </HorizontalStackLayout>
             <HorizontalStackLayout>
-                <Label Text="Created By (UserID): " />
-                <Entry x:Name="txtCreatedByID" />
+                <Label Text="Created By: "/>
+                <Picker x:Name="cboCreatedBy" ItemDisplayBinding="{Binding UserName}" />
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Label Text="Status: "/>

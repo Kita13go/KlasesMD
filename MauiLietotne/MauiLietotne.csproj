@@ -40,6 +40,14 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<PlatformTarget>AnyCPU</PlatformTarget>
+		<TargetPlatformIos>True</TargetPlatformIos>
+		<TargetPlatformAndroid>True</TargetPlatformAndroid>
+		<TargetPlatformWindows>True</TargetPlatformWindows>
+		<TargetPlatformTizen>True</TargetPlatformTizen>
+		<TargetRuntimeIos>net9.0</TargetRuntimeIos>
+		<TargetRuntimeAndroid>net9.0</TargetRuntimeAndroid>
+		<TargetRuntimeWindows>net9.0</TargetRuntimeWindows>
+		<TargetRuntimeTizen>net9.0</TargetRuntimeTizen>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -61,12 +69,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.120" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.111" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.10" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\DBFirst\DBFirst.csproj" />
 	  <ProjectReference Include="..\Klases\Klases.csproj" />
 	</ItemGroup>
 
@@ -96,6 +104,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="TitlePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ITSupportView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -4,12 +4,12 @@ namespace MauiLietotne.Forms;
 
 public partial class AssignmentList : ContentPage
 {
-    private Collections dm;
+    private AddManager dm;
     public AssignmentList()
 	{
 		InitializeComponent();
-        dm = MyStaticItems.myDm.collections;
-        cVList.ItemsSource = dm.GetAllAssignments();
+        dm = MyStaticItems.myDm.am;
+        cVList.ItemsSource = dm.getAssignementList();
     }
 
     private async void EditClicked(object sender, EventArgs e)
@@ -38,9 +38,9 @@ public partial class AssignmentList : ContentPage
                 bool answer = await DisplayAlert("Question?", "Vai gribat dz?st? " + assig.ToString(), "yes", "no");
                 if (answer)
                 {
-                    dm.Assignements.Remove(assig);
+                    dm.removeAssignement(assig);
                     cVList.ItemsSource = null;
-                    cVList.ItemsSource = dm.GetAllAssignments();
+                    cVList.ItemsSource = dm.getAssignementList();
                 }
             }
         }
@@ -49,6 +49,6 @@ public partial class AssignmentList : ContentPage
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         cVList.ItemsSource = null;
-        cVList.ItemsSource = dm.GetAllAssignments();
+        cVList.ItemsSource = dm.getAssignementList();
     }
 }

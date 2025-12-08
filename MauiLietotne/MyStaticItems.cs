@@ -9,6 +9,7 @@ namespace MauiLietotne
 {
     public class MyStaticItems
     {
-        public static JSONDataManager myDm = new JSONDataManager();
+        // public static JSONDataManager myDm = new JSONDataManager();
+        public static DBDataManager myDm = new DBDataManager();
     }
 }

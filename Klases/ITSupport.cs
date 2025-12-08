@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Klases
 {
-    public class ITSupport: User
+    public class ITSupport
     {
+        [Key]
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public bool IsActive { get; set; }
         public enum SpecializationType
         {
             Hardware,
@@ -24,18 +30,17 @@ namespace Klases
         }
 
         // Konstruktors, kurš aizpilda visus laukus
-        public ITSupport(string username, string email, int userID, bool isActive, SpecializationType specialization)
+        public ITSupport(string username, string email, bool isActive, SpecializationType specialization)
         {
             UserName = username;
             Email = email;
-            UserID = userID;
             IsActive = isActive;
             Specialization = specialization;
         }
-        // Pārdefinēta ToString metode, lai izvadītu visas īpašības (arī mantoto)
+        // Pārdefinēta ToString metode, lai izvadītu visas īpašība
         public override string ToString()
         {
-            return base.ToString() + $", Specialization: {Specialization}";
+            return $"Username: {UserName}, Email: {Email}, IsActive: {IsActive}, Specialization: {Specialization}";
         }
     }
 }

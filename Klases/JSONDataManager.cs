@@ -64,8 +64,10 @@ namespace Klases
             collections.Employees.AddRange(new[] { e1, e2 });
 
             // IT atbalsta darbinieki, šai klasei ir konstruktors, kurš automatiski aizpilda laukus
-            var s1 = new ITSupport("Marta Liepa", "marta.liepa@gmail.com", 3, true, SpecializationType.Network);
-            var s2 = new ITSupport("Edgars Kalniņš", "edgars.kalnins@gmail.com", 4, true, SpecializationType.Software);
+            var s1 = new ITSupport("Marta Liepa", "marta.liepa@gmail.com", true, SpecializationType.Network);
+            var s2 = new ITSupport("Edgars Kalniņš", "edgars.kalnins@gmail.com", true, SpecializationType.Software);
+            s1.UserID = 3;
+            s2.UserID = 4;
             collections.ITSupports.AddRange(new[] { s1, s2 });
 
             //Biļetes 
@@ -75,7 +77,7 @@ namespace Klases
                 Title = "printeris nestrādā",
                 Description = "Printeris 2. stāvā neieslēdzas.",
                 Priority = 2,
-                CreatedBy = e1.UserID,
+                EmployeeID = e1.UserID,
                 Status = TicketStatus.Open,
                 IsResolved = false
             };
@@ -85,7 +87,7 @@ namespace Klases
                 Title = "Programmas kļūda",
                 Description = "Excel nereaģē uz peles klikšķiem.",
                 Priority = 3,
-                CreatedBy = e2.UserID,
+                EmployeeID = e2.UserID,
                 Status = TicketStatus.InProgress,
                 IsResolved = false
             };
@@ -97,7 +99,7 @@ namespace Klases
                 AssignementID = 1,
                 AssignedAt = DateTime.Now,
                 TicketID = t1.TicketID,
-                SupportID = s1.UserID,
+                ITSupportID = s1.UserID,
                 Comment = "Pārbaudīt printera barošanu."
             };
 
@@ -105,7 +107,7 @@ namespace Klases
             {
                 AssignementID = 2,
                 AssignedAt = DateTime.Now,
-                SupportID = s2.UserID,
+                ITSupportID = s2.UserID,
                 TicketID = t2.TicketID,
                 Comment = "Notestēt Excel atjauninājumu."
             };
@@ -174,6 +176,20 @@ namespace Klases
                 Debug.WriteLine(ex.Message);
             }
         }
-        
+
+        public void addEmployee(Employee emp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addAssignement(Assignement emp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,11 +8,12 @@ namespace Klases
 {
     public class Ticket
     {
+        public int TicketID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int Priority { get; set; }
-        public int TicketID { get; set; }
-        public int CreatedBy { get; set; }
+        public int? EmployeeID { get; set; }
+        public virtual Employee? Employee { get; set; }
         public enum TicketStatus
         {
             Open,
@@ -25,7 +26,7 @@ namespace Klases
         // Pārdefinēta ToString metode, lai izvadītu visas īpašības
         public override string ToString()
         {
-            return $"TicketID: {TicketID}, Title: {Title}, Description: {Description}, Priority: {Priority}, CreatedBy: {CreatedBy}, Status: {Status}, IsResolved: {IsResolved}";
+            return $"Title: {Title}, Description: {Description}, Priority: {Priority}, CreatedBy: {Employee.UserName}, Status: {Status}, IsResolved: {IsResolved}";
         }
     }
 }

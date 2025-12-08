@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiLietotne"
     xmlns:forms="clr-namespace:MauiLietotne.Forms"
+    xmlns:views="clr-namespace:MauiLietotne.Views"
     Title="MauiLietotne">
 
     <ShellContent
@@ -28,7 +29,7 @@
         ContentTemplate="{DataTemplate forms:AddTicket}"
         Route="AddTicket" />
     <ShellContent
-        Title="Add ITSupport"
-        ContentTemplate="{DataTemplate forms:AddITSupport}"
-        Route="AddITSupport" />
+        Title="ITSupports"
+        ContentTemplate="{DataTemplate views:ITSupportView}"
+        Route="ITSupports" />
 </Shell>

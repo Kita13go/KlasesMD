@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiLietotne.ViewModel"
+             x:Class="MauiLietotne.Views.ITSupportView"
+             x:Name="RootPage"
+             Title="ITSupportView">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+            Text="Izveidot IT Supportu!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <HorizontalStackLayout>
+                <Label Text="User Name: "></Label>
+                <Entry x:Name="txtUserName" Text="{Binding UserName}"></Entry>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Email: "></Label>
+                <Entry x:Name="txtEmail" Text="{Binding Email}"></Entry>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Is Active: "></Label>
+                <Picker x:Name="cboIsActive" ItemsSource="{Binding ActiveValues}" SelectedItem="{Binding SelectedActive}"></Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Specialization Type: "></Label>
+                <Picker x:Name="cboSpecializationType" ItemsSource="{Binding SpecializationValues}" SelectedItem="{Binding SelectedSpecialization}"></Picker>
+            </HorizontalStackLayout>
+            <Button Text="{Binding SubmitButtonText}" Command="{Binding addITSupportCommand}"></Button>
+            <Button Text="Delete" IsVisible="{Binding IsDeleteVisible}" Command="{Binding deleteCommand}"></Button>
+            <Label      Text="{Binding Info}"></Label>
+            <CollectionView ItemsSource="{Binding ITSupportList}"  SelectionMode="Single" SelectedItem="{Binding SelectedITSupport}">
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <!--   Command="{Binding Source={x:Reference RootPage}, Path=BindingContext.itemSelectedCommand}"-->
+                        <!--      Command="{Binding Source={RelativeSource AncestorType={x:Type local:RectanglesViewModelLite}}, Path=itemSelectedCommand}" -->
+                        <!--      Command="{Binding Source={RelativeSource AncestorType={x:Type local:RectanglesViewModelEF}}, Path=itemSelectedCommand}" -->
+                        <!--  <Button Text="{Binding}" BackgroundColor="LightGray"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:RectanglesViewModelEF}}, Path=itemSelectedParamCommand}"
+                             CommandParameter="{Binding}"></Button>-->
+                        <Frame Padding="10" Margin="3" BackgroundColor="LightGray">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:ITSupportsViewModel}}, Path=itemSelectedParamCommand}"
+                                    CommandParameter="{Binding}" />
+                            </Frame.GestureRecognizers>
+                            <Label Text="{Binding}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

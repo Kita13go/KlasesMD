@@ -11,10 +11,6 @@
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
             <HorizontalStackLayout>
-                <Label Text="User ID: "></Label>
-                <Entry x:Name="txtUserID"></Entry>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout>
                 <Label Text="User Name: "></Label>
                 <Entry x:Name="txtUserName"></Entry>
             </HorizontalStackLayout>

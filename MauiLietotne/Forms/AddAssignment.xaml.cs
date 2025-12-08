@@ -3,150 +3,72 @@ namespace MauiLietotne.Forms;
 
 public partial class AddAssignment : ContentPage
 {
-	private IAdd dm;
+	private AddManager dm;
     private Assignement _assignment = null;
     public AddAssignment()
 	{
 		InitializeComponent();
-        dm = MyStaticItems.myDm.collections;
-
+        dm = MyStaticItems.myDm.am;
+        cboITSupport.ItemsSource = dm.getITSupportList();
+        cboTicket.ItemsSource = dm.getTicketList();
     }
     // Konstruktors rediģēšanai
     public AddAssignment(Assignement assignment): this()
     {
         _assignment = assignment;
         // Aizpildām laukus ar esošajiem datiem
-        txtAssignmentID.Text = assignment.AssignementID.ToString();
-        txtITSupportID.Text = assignment.SupportID.ToString();
-        txtTicketID.Text = assignment.TicketID.ToString();
+        var supportList = dm.getITSupportList().ToList();
+        cboITSupport.SelectedIndex = supportList.FindIndex(s => s.UserID == assignment.ITSupportID);
+        var ticketList = dm.getTicketList().ToList();
+        cboTicket.SelectedIndex = ticketList.FindIndex(t => t.TicketID == assignment.TicketID);
         txtComment.Text = assignment.Comment;
     }
 
     private async void btnAdd_Clicked(object sender, EventArgs e)
     {
+        Assignement newAssignement = new Assignement();
+        // Validācija – visi lauki aizpildīti
+        if (cboITSupport.SelectedItem == null ||
+            cboTicket.SelectedItem == null ||
+            string.IsNullOrWhiteSpace(txtComment.Text))
+        {
+            await DisplayAlert("Kļūda", "Lūdzu, aizpildiet visus laukus!", "OK");
+            return;
+        }
+
+        // Pārveidojam ID uz int
+        // Saņemam izvēlēto ITSupport un Ticket objektus no ComboBox
+        var support = (ITSupport)cboITSupport.SelectedItem;
+        var ticket = (Ticket)cboTicket.SelectedItem;
+
         if (_assignment == null)
         {
-            Assignement newAssignement = new Assignement();
-            // Validācija – visi lauki aizpildīti
-            if (string.IsNullOrWhiteSpace(txtAssignmentID.Text) ||
-                string.IsNullOrWhiteSpace(txtITSupportID.Text) ||
-                string.IsNullOrWhiteSpace(txtTicketID.Text) ||
-                string.IsNullOrWhiteSpace(txtComment.Text))
-            {
-                await DisplayAlert("Kļūda", "Lūdzu, aizpildiet visus laukus!", "OK");
-                return;
-            }
-
-            // Pārveidojam ID uz int
-            if (!int.TryParse(txtAssignmentID.Text, out int assignmentId))
-            {
-                await DisplayAlert("Kļūda", "Assignment ID jābūt skaitlim!", "OK");
-                return;
-            }
-            if (!int.TryParse(txtITSupportID.Text, out int supportId))
-            {
-                await DisplayAlert("Kļūda", "Support ID jābūt skaitlim!", "OK");
-                return;
-            }
-            if (!int.TryParse(txtTicketID.Text, out int ticketId))
-            {
-                await DisplayAlert("Kļūda", "Ticket ID jābūt skaitlim!", "OK");
-                return;
-            }
-
-            // Pārbaudām, vai ID jau eksistē
-            var existing = dm.GetAllAssignments()?.FirstOrDefault(a => a.AssignementID == assignmentId);
-            if (existing != null)
-            {
-                await DisplayAlert("Kļūda", $"Assignment ar ID {assignmentId} jau eksistē!", "OK");
-                return;
-            }
-
-            // Atrodam ITSupport un Ticket objektus
-            var support = dm.GetAllITSupports()?.FirstOrDefault(s => s.UserID == supportId);
-            if (support == null)
-            {
-                await DisplayAlert("Kļūda", $"ITSupport ar ID {supportId} nav atrasts!", "OK");
-                return;
-            }
-
-            var ticket = dm.GetAllTickets()?.FirstOrDefault(t => t.TicketID == ticketId);
-            if (ticket == null)
-            {
-                await DisplayAlert("Kļūda", $"Ticket ar ID {ticketId} nav atrasts!", "OK");
-                return;
-            }
-
             // Izveidojam Assignment objektu
-            newAssignement.AssignementID = assignmentId;
             newAssignement.AssignedAt = DateTime.Now;
-            newAssignement.SupportID = supportId;
-            newAssignement.TicketID = ticketId;
+            newAssignement.ITSupportID = support.UserID;
+            newAssignement.TicketID = ticket.TicketID;
             newAssignement.Comment = txtComment.Text.Trim();
 
             // Pievienojam un saglabājam
-            dm.addAssignment(newAssignement);
+            dm.addAssignement(newAssignement);
 
             // Pārejam uz datu lapu vai notīrām laukus
             await Shell.Current.GoToAsync("//AssignmentList");
+
+            // Notīrām laukus
+            cboITSupport.SelectedItem = null;
+            cboTicket.SelectedItem = null;
+            txtComment.Text = string.Empty;
         }
         else 
         {
-            // Validācija – visi lauki aizpildīti
-            if (string.IsNullOrWhiteSpace(txtAssignmentID.Text) ||
-                string.IsNullOrWhiteSpace(txtITSupportID.Text) ||
-                string.IsNullOrWhiteSpace(txtTicketID.Text) ||
-                string.IsNullOrWhiteSpace(txtComment.Text))
-            {
-                await DisplayAlert("Kļūda", "Lūdzu, aizpildiet visus laukus!", "OK");
-                return;
-            }
-
-            // Pārveidojam ID uz int
-            if (!int.TryParse(txtAssignmentID.Text, out int assignmentId))
-            {
-                await DisplayAlert("Kļūda", "Assignment ID jābūt skaitlim!", "OK");
-                return;
-            }
-            if (!int.TryParse(txtITSupportID.Text, out int supportId))
-            {
-                await DisplayAlert("Kļūda", "Support ID jābūt skaitlim!", "OK");
-                return;
-            }
-            if (!int.TryParse(txtTicketID.Text, out int ticketId))
-            {
-                await DisplayAlert("Kļūda", "Ticket ID jābūt skaitlim!", "OK");
-                return;
-            }
-
-            // Pārbaudām, vai ID jau eksistē
-            var existing = dm.GetAllAssignments()?.FirstOrDefault(a => a.AssignementID == assignmentId);
-            if (existing != null && assignmentId != _assignment.AssignementID)
-            {
-                await DisplayAlert("Kļūda", $"Assignment ar ID {assignmentId} jau eksistē!", "OK");
-                return;
-            }
-
-            // Atrodam ITSupport un Ticket objektus
-            var support = dm.GetAllITSupports()?.FirstOrDefault(s => s.UserID == supportId);
-            if (support == null)
-            {
-                await DisplayAlert("Kļūda", $"ITSupport ar ID {supportId} nav atrasts!", "OK");
-                return;
-            }
-
-            var ticket = dm.GetAllTickets()?.FirstOrDefault(t => t.TicketID == ticketId);
-            if (ticket == null)
-            {
-                await DisplayAlert("Kļūda", $"Ticket ar ID {ticketId} nav atrasts!", "OK");
-                return;
-            }
             // Atjaunojam esošo Assignment objektu
-            _assignment.AssignementID = assignmentId;
             _assignment.AssignedAt = DateTime.Now;
-            _assignment.SupportID = supportId;
-            _assignment.TicketID = ticketId;
+            _assignment.ITSupportID = support.UserID;
+            _assignment.TicketID = ticket.TicketID;
             _assignment.Comment = txtComment.Text.Trim();
+            // Saglabājam izmaiņas
+            dm.Save();
             await Navigation.PopAsync();
         }
     }

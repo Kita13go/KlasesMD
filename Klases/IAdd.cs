@@ -8,12 +8,10 @@ namespace Klases
 {
     public interface IAdd
     {
-        void addITSupport(ITSupport support);
-        List<ITSupport> GetAllITSupports();
-        void addTicket(Ticket ticket);
-        List<Ticket> GetAllTickets();
-        List<Employee> GetAllEmployees();
-        List<Assignement> GetAllAssignments();
-        void addAssignment(Assignement assignment);
+        void addEmployee(Employee emp);
+        void addITSupport(ITSupport emp);
+        void addTicket(Ticket emp);
+        void addAssignement(Assignement emp);
+        void Save();
     }
 }

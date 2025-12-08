@@ -68,5 +68,20 @@ namespace Klases
         {
             Assignements.Add(assignment);
         }
+
+        public void addEmployee(Employee emp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addAssignement(Assignement emp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
