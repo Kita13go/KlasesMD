@@ -4,6 +4,7 @@ using Klases;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Klases.Migrations
 {
     [DbContext(typeof(Md3Context))]
-    partial class Md3ContextModelSnapshot : ModelSnapshot
+    [Migration("20251222055132_SetNullOnDelete")]
+    partial class SetNullOnDelete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,24 +53,6 @@ namespace Klases.Migrations
                     b.HasIndex("TicketID");
 
                     b.ToTable("Assignements");
-
-                    b.HasData(
-                        new
-                        {
-                            AssignementID = 1,
-                            AssignedAt = new DateTime(2025, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Comment = "Pārbaudīt printera barošanu.",
-                            ITSupportID = 1,
-                            TicketID = 1
-                        },
-                        new
-                        {
-                            AssignementID = 2,
-                            AssignedAt = new DateTime(2025, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Comment = "Notestēt Excel atjauninājumu.",
-                            ITSupportID = 2,
-                            TicketID = 2
-                        });
                 });
 
             modelBuilder.Entity("Klases.Employee", b =>
@@ -95,24 +80,6 @@ namespace Klases.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            UserID = 1,
-                            ContractDate = new DateTime(2020, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "anna.ozola@gmail.com",
-                            IsActive = true,
-                            UserName = "Anna Ozola"
-                        },
-                        new
-                        {
-                            UserID = 2,
-                            ContractDate = new DateTime(2021, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "janis.berzins@gmail.com",
-                            IsActive = true,
-                            UserName = "Jānis Bērziņš"
-                        });
                 });
 
             modelBuilder.Entity("Klases.ITSupport", b =>
@@ -140,24 +107,6 @@ namespace Klases.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("ITSupports");
-
-                    b.HasData(
-                        new
-                        {
-                            UserID = 1,
-                            Email = "marta.liepa@gmail.com",
-                            IsActive = true,
-                            Specialization = 2,
-                            UserName = "Marta Liepa"
-                        },
-                        new
-                        {
-                            UserID = 2,
-                            Email = "edgars.kalnins@gmail.com",
-                            IsActive = true,
-                            Specialization = 1,
-                            UserName = "Edgars Kalniņš"
-                        });
                 });
 
             modelBuilder.Entity("Klases.Ticket", b =>
@@ -193,28 +142,6 @@ namespace Klases.Migrations
                     b.HasIndex("EmployeeID");
 
                     b.ToTable("Tickets");
-
-                    b.HasData(
-                        new
-                        {
-                            TicketID = 1,
-                            Description = "Printeris 2. stāvā neieslēdzas.",
-                            EmployeeID = 1,
-                            IsResolved = false,
-                            Priority = 2,
-                            Status = 0,
-                            Title = "printeris nestrādā"
-                        },
-                        new
-                        {
-                            TicketID = 2,
-                            Description = "Excel nereaģē uz peles klikšķiem.",
-                            EmployeeID = 2,
-                            IsResolved = false,
-                            Priority = 3,
-                            Status = 1,
-                            Title = "Programmas kļūda"
-                        });
                 });
 
             modelBuilder.Entity("Klases.Assignement", b =>

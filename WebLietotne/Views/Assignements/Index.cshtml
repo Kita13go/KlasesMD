@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Klases.Assignement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Assignements</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ITSupport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @if (item.ITSupport?.UserID != null)
+                {
+                <a asp-controller="ITSupports" asp-action="Details" asp-route-id="@item.ITSupport.UserID">
+                    @item.ITSupport.UserName
+                </a>
+                }
+                else
+                {
+                        <span class="text-muted">No IT Support </span>
+                }
+            </td>
+            <td>
+                @if (item.Ticket?.TicketID != null)
+                {
+                    <a asp-controller="Tickets" asp-action="Details" asp-route-id="@item.Ticket.TicketID">
+                       @item.Ticket.Title
+                    </a>
+                }
+                else
+                {
+                    <span class="text-muted">No ticket</span>
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AssignementID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AssignementID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AssignementID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

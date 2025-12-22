@@ -35,7 +35,7 @@ namespace MauiLietotne.ViewModel
 
         //poga Add vai Update
         [ObservableProperty]
-        private string submitButtonText = "Add Rectangle";
+        private string submitButtonText = "Add ITSupport";
 
         //saraksts ar IT Supports DB
         [ObservableProperty]
@@ -103,7 +103,7 @@ namespace MauiLietotne.ViewModel
                     ITSupportList[index] = UpdateITSupport;
                 }
                 dm.Save();
-                Info = "Rectangle updated!";
+                Info = "ITSupport updated!";
                 endEdit();
             }
             refresh();
@@ -132,7 +132,7 @@ namespace MauiLietotne.ViewModel
             {
 
                 dm.removeITSupport(UpdateITSupport);
-                Info = "Rectangle deleted!";
+                Info = "ITSupport deleted!";
                 endEdit();
                 refresh();
             }
@@ -149,14 +149,14 @@ namespace MauiLietotne.ViewModel
             SelectedActive = true;
             SelectedSpecialization = SpecializationType.Software.ToString();
 
-            SubmitButtonText = "Add Rectangle";
+            SubmitButtonText = "Add ITSupport";
             IsDeleteVisible = false;
         }
 
         //pārslēdzamies no Add modes uz Edit modi
         private void startEdit()
         {
-            SubmitButtonText = "Update Rectangle";
+            SubmitButtonText = "Update ITSupport";
             IsDeleteVisible = true;
         }
 

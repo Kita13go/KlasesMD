@@ -12,6 +12,9 @@ namespace Klases
         [Key]
         public int UserID { get; set; }
         public string UserName { get; set; }
+
+        // Epasta validācija
+        [EmailAddress(ErrorMessage = "E-pastam jāsatur simbols @")]
         public string Email { get; set; }
         public bool IsActive { get; set; }
         public enum SpecializationType
